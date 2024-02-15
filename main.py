@@ -25,10 +25,7 @@ def notlari_listele():
 
 @app.route('/notlar', methods=['POST'])
 def not_ekle():
-    data = request.get_json()
-     # Eğer istek JSON içermiyorsa veya isteğin Content-Type'ı 'application/json' değilse hata döndür
-    if not data or request.headers['Content-Type'] != 'application/json':
-        return jsonify({'error': 'Geçersiz istek. JSON içeriği bekleniyor.'}), 415
+    data = request.form  # Form verilerini al
     baslik = data['baslik']
     icerik = data['icerik']
     conn = sqlite3.connect('notlar.db')
@@ -37,7 +34,8 @@ def not_ekle():
     conn.commit()
     conn.close()
 
-    return jsonify({'message': 'Not başariyla eklendi'})
+    return jsonify({'message': 'Not basariyla eklendi'})
+
 
 @app.route('/notlar/<int:id>', methods=['GET'])
 def not_getir(id):

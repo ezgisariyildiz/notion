@@ -37,10 +37,10 @@
 
     <!-- Yeni not eklemek için form -->
     <h2>Yeni Not Ekle</h2>
-    <form action="/notlar" method="POST" enctype="application/json">
-        <label for="baslik">Başlık:</label>
+    <form action="/notlar" method="POST" enctype="application/x-www-form-urlencoded">
+        <label for="baslik">Baslik:</label>
         <input type="text" id="baslik" name="baslik"><br><br>
-        <label for="icerik">İçerik:</label><br>
+        <label for="icerik">Icerik:</label><br>
         <textarea id="icerik" name="icerik" rows="4" cols="50"></textarea><br><br>
         <button type="submit">Not Ekle</button>
     </form>    
