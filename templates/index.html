@@ -1,0 +1,50 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notion</title>
+    <!-- Diğer meta ve başlık etiketleri -->
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script src="/static/script.js"></script>
+</head>
+<body>
+    <h1>Notion</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Baslik</th>
+                <th>Icerik</th>
+                <th>Tarih</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for not in notlar %}
+            <tr>
+                <td>{{ not[0] }}</td>
+                <td>{{ not[1] }}</td>
+                <td>{{ not[2] }}</td>
+                <td>{{ not[3] }}</td>
+                <td>{{ not[4] }}</td>
+                <td>{{ not[5] }}</td>
+                <td>{{ not[6] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Yeni not eklemek için form -->
+    <h2>Yeni Not Ekle</h2>
+    <form action="/notlar" method="POST" enctype="application/json">
+        <label for="baslik">Başlık:</label>
+        <input type="text" id="baslik" name="baslik"><br><br>
+        <label for="icerik">İçerik:</label><br>
+        <textarea id="icerik" name="icerik" rows="4" cols="50"></textarea><br><br>
+        <button type="submit">Not Ekle</button>
+    </form>    
+
+    <script src="script.js"></script>
+</body>
+</html>
